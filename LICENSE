@@ -12,6 +12,16 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
+Attribution Requirement:
+Any public use, redistribution, or derivative work based on this Software
+must give visible credit to Axomiya IT Labs. This includes, at minimum, one
+of the following:
+  - Retaining the "Powered by Axomiya IT Labs" credit in the project's
+    README, documentation, or "About" section, or
+  - Including a visible link back to https://AxomiyaITLabs.vercel.app
+    in the project or application.
+Removing or obscuring this attribution is not permitted.
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
