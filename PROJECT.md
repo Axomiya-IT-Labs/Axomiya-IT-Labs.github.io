@@ -1,218 +1,159 @@
 # 📘 Axomiya IT Labs — Ultimate Master Documentation (`PROJECT.md`)
 
-Welcome to the complete, single-source-of-truth documentation for **Axomiya IT Labs**. This repository is built as an industry-standard, high-performance static website for **GitHub Pages** powered by **Jekyll**.
+Welcome to the single-source-of-truth master documentation for **Axomiya IT Labs**. This static website is engineered with an **Anthropic-inspired warm minimalist design aesthetic**, fully **mobile-first & desktop-friendly**, and 100% compatible with **GitHub Pages** (Jekyll).
 
 ---
 
-## 🧭 1. Architecture Overview & Directory Layout
+## 🏛️ 1. Core Mission & Identity
+
+> **Rooted in Assam — Assam's first AI & open-source community.**
+> Everyone is welcome — no matter your age, background, or technical skill. If you are curious and want to learn, build, or share, you belong here.
+
+### The Three Pillars (Learn, Build, Share):
+- 📖 **Learn**: Read short guides, watch practical tutorials, and explore AI tools in plain language. *(Clear language lowers fear.)*
+- 🔨 **Build**: Create real projects: websites, AI tools, automation scripts, and educational platforms. *(Visible progress keeps motivation alive.)*
+- 🤝 **Share**: Share what you learn, even if it feels small. Every translation, tutorial, example, bug report, and line of code removes friction for the next person. *(Small help compounds.)*
+
+### The Three Guiding Principles:
+1. **01 From Scrolling to Creating**: Turn curiosity into useful projects. Start with something small enough to finish today.
+2. **02 Open Source, Made Easier by AI**: Everything is free and community-driven. You can contribute even if your first contribution is a correction.
+3. **03 Accessible Tech & Learning**: Language does not decide who gets to learn. Understanding comes first. Speed comes after.
+
+---
+
+## 📂 2. Repository Architecture & Layout
 
 ```text
 axomiyaitlabs/
 ├── .github/
 │   └── workflows/
-│       └── pages.yml              # 🚀 GitHub Actions auto-deployment to GitHub Pages
-├── _data/                         # 📊 YAML Data Files (Single source of content data)
-│   ├── announcements.yml          # Product launches, events, & updates
-│   ├── community.yml              # Member profiles & community metrics
-│   ├── nav.yml                    # Site navigation menu
-│   ├── projects.yml               # FOSS software projects & Ideas Bar items
-│   └── team.yml                   # Leadership, developers, designers, & advisors
-├── _includes/                     # 🧩 Reusable HTML Components & Partials
-│   ├── header.html                # Sticky responsive header & logo
-│   ├── footer.html                # Footer links, social icons, & copyright
+│       └── pages.yml              # 🚀 GitHub Actions deployment workflow
+├── _data/                         # 📊 Data files (Single source of content)
+│   ├── announcements.yml          # Product launches & updates
+│   ├── community.yml              # Member profiles & statistics
+│   ├── nav.yml                    # Main navigation bar links
+│   ├── projects.yml               # FOSS repositories & Ideas Bar ideas
+│   └── team.yml                   # Leadership, developers, & advisors
+├── _includes/                     # 🧩 Reusable HTML Components
+│   ├── header.html                # Responsive header & drawer menu
+│   ├── footer.html                # Dark minimalist footer
 │   ├── components/
-│   │   ├── announcement-card.html # Card component for announcements
-│   │   ├── member-card.html       # Card component for community members
-│   │   └── team-card.html         # Card component for team members
+│   │   ├── announcement-card.html # Announcement card
+│   │   ├── member-card.html       # Member card
+│   │   └── team-card.html         # Team member card
 │   ├── partials/
-│   │   └── newsletter-signup.html # Newsletter subscription form
+│   │   └── newsletter-signup.html # Newsletter form
 │   └── sections/
-│       ├── community-stats.html   # Live statistics grid
-│       └── team-grid.html         # Grid renderer for team listings
+│       ├── community-stats.html   # Community stats grid
+│       └── team-grid.html         # Team grid layout
 ├── _layouts/                      # 📐 HTML Page Layout Templates
-│   ├── default.html               # Master wrapper (HTML head, SEO tags, CSS/JS includes)
-│   ├── page.html                  # Standard page layout
-│   ├── post.html                  # Blog post layout with date, author, & tag meta
-│   ├── announcements.html         # Announcements hub layout
-│   ├── community.html             # Community landing page layout
-│   └── team.html                  # Team page layout
-├── _pages/                        # 📄 Site Pages (Markdown / HTML)
+│   ├── default.html               # Head, Google Fonts (Instrument Serif + Inter), SEO tags
+│   ├── page.html                  # Standard page template
+│   ├── post.html                  # Blog post template
+│   ├── announcements.html         # Announcements hub template
+│   ├── community.html             # Community landing template
+│   └── team.html                  # Team page template
+├── _pages/                        # 📄 Main Pages
 │   ├── about.md                   # /about/
 │   ├── announcements/index.md     # /announcements/
 │   ├── community/index.md         # /community/
-│   ├── projects/index.md          # /projects/ (FOSS software & Ideas Bar)
+│   ├── projects/index.md          # /projects/ (FOSS & Ideas Bar)
 │   └── team/index.md              # /team/
-├── _posts/                        # ✍️ Blog Posts & Articles
-│   └── YYYY-MM-DD-title.md
-├── _sass/                         # 🎨 SASS Stylesheets
-│   ├── base.scss                  # Core typography, variables, buttons, & resets
-│   ├── layout.scss                # Header, mobile drawer menu, & footer layout
+├── _posts/                        # ✍️ Blog Posts (YYYY-MM-DD-title.md)
+│   └── 2026-07-20-welcome-to-axomiya.md
+├── _sass/                         # 🎨 SASS Stylesheets (Anthropic Design System)
+│   ├── base.scss                  # Fonts, typography, design tokens, buttons
+│   ├── layout.scss                # Header, mobile navigation drawer, dark footer
 │   ├── components/
-│   │   └── _ai-chat.scss          # AI assistant chat widget styling
+│   │   └── _ai-chat.scss          # AI assistant widget styles
 │   └── pages/
-│       ├── _announcements.scss    # Announcements grid & badge styling
-│       ├── _community.scss       # Community member cards & stats grid
-│       ├── _projects.scss         # FOSS repository cards & Ideas Bar styling
-│       └── _team.scss             # Team member cards & grid layouts
+│       ├── _announcements.scss    # Announcements grid
+│       ├── _community.scss       # Member cards & stats grid
+│       ├── _projects.scss         # FOSS project cards & Ideas Bar styles
+│       └── _team.scss             # Team member cards
 ├── assets/                        # 🖼️ Static Assets
 │   ├── css/
-│   │   └── main.scss              # Main SCSS entry point (compiles to main.css)
+│   │   └── main.scss              # Main stylesheet entrypoint
 │   ├── js/
-│   │   └── main.js                # Frontend interactive JS
-│   └── images/                    # Images (team, projects, community, announcements)
-├── _config.yml                    # ⚙️ Global Jekyll Configuration
-├── Gemfile                        # 💎 Ruby Gem Dependencies
+│   │   └── main.js                # Mobile drawer menu & smooth scroll JS
+│   └── images/                    # Image assets
+├── _config.yml                    # ⚙️ Jekyll Configuration
+├── Gemfile                        # 💎 Dependencies
 ├── index.md                       # 🏠 Home Page
 ├── README.md                      # GitHub Repository README
-└── PROJECT.md                     # 📖 This Complete Documentation File
+└── PROJECT.md                     # 📖 This Documentation File
 ```
 
 ---
 
-## 🛠️ 2. How to Update Anything (Quick Guide)
+## 🎨 3. Design System & Theme Tokens (Anthropic Aesthetic)
 
-### ✍️ A. Writing & Publishing Articles / Blog Posts
-To publish a new article or blog post:
-1. Create a new file in `_posts/` with the filename format: `YYYY-MM-DD-your-title.md` (e.g. `2026-08-15-ai-trends.md`).
-2. Add Front Matter at the top of the file:
+The design system mimics Anthropic's warm, elegant editorial aesthetic (`anthropic.com`):
+
+```scss
+:root {
+  --bg-main: #fcfbfa;            /* Warm off-white background */
+  --bg-card: #ffffff;            /* Pure white card backgrounds */
+  --bg-subtle: #f4f0ea;          /* Warm subtle beige containers */
+  --bg-dark: #141413;            /* Warm dark footer */
+  --text-main: #191919;          /* Deep charcoal primary text */
+  --text-muted: #595755;        /* Muted charcoal secondary text */
+  --accent-warm: #cc5500;        /* Signature warm terracotta/amber accent */
+  --border-light: #e8e3dc;       /* Warm subtle border lines */
+  --font-serif: 'Instrument Serif', Georgia, serif; /* Editorial headings */
+  --font-sans: 'Inter', sans-serif;                /* Clean sans-serif body */
+}
+```
+
+### Key Principles:
+- **Mobile-First**: Base CSS applies to mobile devices; upward scaling `@media (min-width: 768px)` enhances desktop layouts.
+- **No Heavy Hard Colors**: Clean, warm off-white tones, subtle borders, high readability.
+- **Editorial Typography**: Large, elegant serif headings paired with clean modern body sans-serif.
+
+---
+
+## 🛠️ 4. How to Update Anything on the Site
+
+### ✍️ A. Publishing Articles / Blog Posts
+1. Create `_posts/YYYY-MM-DD-your-title.md`.
+2. Add Front Matter:
 ```markdown
 ---
 layout: post
-title: "Your Article Title"
-author: "Your Name"
-categories: [AI, Software]
-excerpt: "A brief summary of the article."
+title: "Article Title"
+author: "Author Name"
+categories: [AI, Learning]
+excerpt: "Article summary."
 image: "/assets/images/announcements/2026-07/welcome.jpg"
 ---
 
-## Article Subheading
-
-Write your main article content here using standard Markdown...
+Write article content in Markdown...
 ```
 
+### 👨‍💻 B. Adding Team Members
+Edit `_data/team.yml` under `leadership`, `developers`, `designers`, or `advisors`.
+
+### 📢 C. Adding Announcements
+Edit `_data/announcements.yml`.
+
+### 💡 D. Adding FOSS Software Repositories & Ideas to the Ideas Bar
+Edit `_data/projects.yml`:
+- Add to `projects` for completed open-source software.
+- Add to `ideas_bar` for project ideas that developers/nerds can pick up and build.
+
 ---
 
-### 👨‍💻 B. Adding or Editing Team Members
-Edit `_data/team.yml`. You can add members under `leadership`, `developers`, `designers`, or `advisors`:
+## 🚀 5. Running & Deploying
 
-```yaml
-developers:
-  - name: "Full Name"
-    role: "Senior Software Engineer"
-    bio: "Passionate open-source builder."
-    image: "/assets/images/team/developers/name.jpg"
-    social:
-      github: "github-username"
-      linkedin: "linkedin-username"
-    projects: ["Project Alpha", "CLI Tool"]
+### Local Development:
+```bash
+bundle install
+bundle exec jekyll serve
 ```
-
----
-
-### 📢 C. Adding Announcements & Product Releases
-Edit `_data/announcements.yml`:
-
-```yaml
-- id: 4
-  title: "New Product Release 🚀"
-  date: "2026-08-20"
-  type: "major" # Options: major, event, update
-  category: "Product Launch"
-  excerpt: "Summary of what was released."
-  image: "/assets/images/announcements/2026-08/launch.jpg"
-  link: "/announcements/new-release"
-  author: "Author Name"
-  tags: ["Launch", "FOSS"]
-```
-
----
-
-### 💡 D. Managing FOSS Software & The "Ideas Bar"
-Open `_data/projects.yml` to manage software repositories and project ideas for developers/nerds:
-
-#### 1. Adding a FOSS Software Repository (`projects` section):
-```yaml
-- id: "my-tool"
-  title: "Awesome Developer CLI"
-  category: "Developer Tools"
-  badge: "Featured FOSS"
-  description: "An open-source CLI that simplifies local development."
-  stars: 45
-  forks: 12
-  language: "Rust"
-  repo: "https://github.com/axomiyaitlabs/awesome-cli"
-  tags: ["Rust", "CLI", "DevTools"]
-```
-
-#### 2. Adding a Project Idea to the "Ideas Bar" (`ideas_bar` section):
-```yaml
-- id: "idea-5"
-  title: "Realtime Log Analytics Dashboard"
-  difficulty: "Intermediate" # Options: Beginner Friendly, Intermediate, Advanced
-  tech_stack: ["Go", "React", "WebSockets"]
-  description: "A minimal open-source log analyzer for server applications."
-  looking_for: ["Backend Engineer", "UI Developer"]
-  status: "Open Idea"
-```
-
----
-
-### 🖼️ E. Adding & Managing Images & Documents
-- Place image files inside `assets/images/` (subfolders: `announcements/`, `team/`, `community/`, `projects/`).
-- Always reference images in Liquid templates or Markdown using the `relative_url` filter:
-  - **In Liquid**: `{{ '/assets/images/team/photo.jpg' | relative_url }}`
-  - **In Markdown**: `![Alt Text]({{ '/assets/images/team/photo.jpg' | relative_url }}`
-
----
-
-### 🔗 F. Editing Main Navigation Menu
-Edit `_data/nav.yml` to change menu headers or links:
-```yaml
-- title: Home
-  url: /
-- title: About
-  url: /about/
-- title: Projects
-  url: /projects/
-- title: Announcements
-  url: /announcements/
-- title: Community
-  url: /community/
-- title: Team
-  url: /team/
-```
-
----
-
-## 🎨 3. Styling & Customization System (`_sass/`)
-
-Global styles are written in modern SCSS and compiled into `assets/css/main.css`.
-
-- `_sass/base.scss`: CSS design tokens (colors `--primary`, `--secondary`), typography, buttons (`.btn`), cards, and layout containers.
-- `_sass/layout.scss`: Sticky header navigation, mobile drawer menu (`#siteNav`), footer styling.
-- `_sass/pages/_projects.scss`: Styling for FOSS project cards and the Ideas Bar cards & difficulty badges.
-- `_sass/pages/_community.scss`: Community statistics cards and member avatars.
-- `_sass/pages/_team.scss`: Team member grid layout and social badges.
-
----
-
-## 🚀 4. Local Development & GitHub Pages Deployment
-
-### Local Server Setup:
-1. Ensure Ruby and Bundler are installed.
-2. Run installation:
-   ```bash
-   bundle install
-   ```
-3. Start the local server:
-   ```bash
-   bundle exec jekyll serve
-   ```
-4. Preview the website live at `http://localhost:4000`.
+Open `http://localhost:4000`.
 
 ### GitHub Pages (2026 Standard):
-- Pushing to the `main` branch automatically triggers the `.github/workflows/pages.yml` GitHub Actions pipeline.
-- The workflow compiles SCSS, processes Kramdown Markdown, and deploys clean static HTML to GitHub Pages.
+Pushes to `main` automatically deploy via `.github/workflows/pages.yml`.
 
 ---
 *Documentation maintained by Axomiya IT Labs.*

@@ -1,29 +1,31 @@
-// Projects & Ideas Bar SASS Styles
+// Projects & Ideas Bar SASS Styles (Anthropic Minimal)
 .projects-hero {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin: 1.5rem 0 3rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
 }
 
 .project-card {
-  background: white;
-  border-radius: var(--radius);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow);
-  padding: 1.5rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
   transition: all 0.25s ease;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-    border-color: #cbd5e1;
+    border-color: var(--text-main);
+    box-shadow: var(--shadow-hover);
   }
 
   .project-header {
@@ -35,15 +37,16 @@
 
     h3 {
       margin: 0;
-      font-size: 1.25rem;
-      color: var(--secondary);
+      font-size: 1.35rem;
+      font-family: var(--font-serif);
     }
 
     .project-badge {
-      background: #eff6ff;
-      color: var(--primary);
+      background: var(--bg-subtle);
+      color: var(--text-main);
+      border: 1px solid var(--border-light);
       font-size: 0.75rem;
-      font-weight: 700;
+      font-weight: 600;
       padding: 0.2rem 0.6rem;
       border-radius: 12px;
       white-space: nowrap;
@@ -58,18 +61,17 @@
 
   .project-description {
     font-size: 0.95rem;
-    color: var(--text-dark);
+    color: var(--text-main);
     flex: 1;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
   }
 
   .project-stats {
     display: flex;
     gap: 1rem;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
-    margin-bottom: 0.75rem;
-    font-weight: 600;
+    margin-bottom: 1rem;
   }
 
   .project-tags {
@@ -80,8 +82,8 @@
 
     .tag {
       font-size: 0.75rem;
-      background: #f1f5f9;
-      color: #334155;
+      background: var(--bg-subtle);
+      color: var(--text-muted);
       padding: 0.2rem 0.5rem;
       border-radius: 4px;
     }
@@ -97,24 +99,29 @@
 // Ideas Bar Grid
 .ideas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin: 1.5rem 0 3rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
 
 .idea-card {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  border: 1px solid #e2e8f0;
-  border-left: 4px solid var(--primary);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  box-shadow: var(--shadow);
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--accent-warm);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease;
+  transition: all 0.25s ease;
 
   &:hover {
-    transform: translateY(-3px);
+    border-color: var(--text-main);
+    border-left-color: var(--accent-warm);
+    box-shadow: var(--shadow-hover);
   }
 
   .idea-header {
@@ -126,50 +133,38 @@
 
     h3 {
       margin: 0;
-      font-size: 1.15rem;
+      font-size: 1.25rem;
+      font-family: var(--font-serif);
     }
 
     .difficulty-badge {
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
       border-radius: 12px;
-
-      &.beginner-friendly {
-        background: #dcfce7;
-        color: #15803d;
-      }
-
-      &.intermediate {
-        background: #fef3c7;
-        color: #b45309;
-      }
-
-      &.advanced {
-        background: #fee2e2;
-        color: #b91c1c;
-      }
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
     }
   }
 
   .idea-description {
-    font-size: 0.9rem;
-    color: var(--text-dark);
+    font-size: 0.95rem;
+    color: var(--text-main);
     flex: 1;
     margin-bottom: 1rem;
   }
 
   .idea-meta {
-    font-size: 0.825rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
-    background: #ffffff;
-    padding: 0.75rem;
-    border-radius: 6px;
-    border: 1px solid #f1f5f9;
-    margin-bottom: 1rem;
+    background: var(--bg-subtle);
+    padding: 0.85rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.25rem;
 
     p {
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.35rem;
 
       &:last-child {
         margin-bottom: 0;
@@ -184,17 +179,17 @@
     gap: 0.5rem;
 
     .idea-status {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #64748b;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
     }
   }
 }
 
 .submit-idea-box {
-  background: #f8fafc;
-  border: 1px dashed #cbd5e1;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
   padding: 2.5rem 1.5rem;
-  border-radius: var(--radius);
+  border-radius: var(--radius-md);
   margin-top: 2rem;
 }
