@@ -1,7 +1,19 @@
 # Axomiya IT Labs
 
-> **Rooted in Assam — Assam's first AI & open-source community.**
+> **Rooted in Assam — Assam's first AI & open-source community.**  
 > Everyone is welcome — no matter your age, background, or technical skill. If you are curious and want to learn, build, or share, you belong here.
+
+---
+
+## 📚 Documentation & Contribution Hub
+
+Welcome to **Axomiya IT Labs**! To make contributing easy for everyone, our documentation is organized into clear, dedicated guides depending on what you want to do:
+
+| Document | Description & Purpose | Link |
+| :--- | :--- | :--- |
+| 🛠️ **PROJECT.md** | **Projects & Ideas Guide** — Step-by-step instructions to submit new projects, update existing ones, or propose community ideas in `_projects/`. | [Read PROJECT.md](PROJECT.md) |
+| 🔬 **RESEARCH.md** | **Research & Articles Guide** — How to write and publish research posts, tutorials, and case studies in `_posts/`. | [Read RESEARCH.md](RESEARCH.md) |
+| 📘 **CONTRIBUTE.md** | **Master Architecture & Manual** — Full repository structure, Anthropic design system, local environment setup (`jekyll serve`), and Git PR workflow. | [Read CONTRIBUTE.md](CONTRIBUTE.md) |
 
 ---
 
@@ -38,13 +50,6 @@ If you want to share what you know, benefit others, and explore new fields with 
 ## 🛑 Open Source — Not Open for Business Promotions
 
 Axomiya IT Labs is a free and open-source community. Please do not use this space for business promotions, paid services, or commercial advertisements. All contributions must genuinely benefit the community. For business collaborations, sponsorships, or paid opportunities, please join our Telegram community and speak directly with the admins.
-
----
-
-## 🛠️ Contributing to Projects
-
-Want to submit a new project, build an idea from the Ideas Bar, or scale our open-source tools?
-Read our dedicated [Projects & Contributor Guide (`PROJECTS.md`)](PROJECTS.md) and master system doc [`PROJECT.md`](PROJECT.md).
 
 ---
 
