@@ -9,7 +9,7 @@
   padding: 0;
   position: sticky;
   top: 0;
-  z-index: 9999; // Ensure header stays above hero section
+  z-index: 1000001; // Always above the full-screen mobile nav overlay
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
@@ -22,7 +22,7 @@
     padding: 0 1.25rem;
     height: 64px;
     position: relative;
-    z-index: 10000;
+    z-index: 1000001;
   }
 
   // ── Brand Logo — fixed far left ─────────────────────────
@@ -189,7 +189,8 @@
     width: 42px;
     height: 42px;
     flex-shrink: 0;
-    z-index: 100001;
+    position: relative;
+    z-index: 1000000;  // ALWAYS on top — above the open mobile nav overlay
     transition: background 0.2s ease, border-color 0.2s ease;
 
     .hamburger-line {
@@ -243,13 +244,13 @@
   .site-header {
     .site-nav {
       position: fixed !important;
-      top: 64px !important;
+      top: 0 !important;           // Cover the ENTIRE viewport from the very top
       left: 0 !important;
       right: 0 !important;
       bottom: 0 !important;
       background: #ffffff !important;
       background-color: #ffffff !important;
-      z-index: 100000 !important; // Above hero section and all page elements
+      z-index: 999999 !important;  // Always above hero, header, and all content
       flex-direction: column !important;
       align-items: stretch !important;
       padding: 0 !important;
@@ -262,6 +263,14 @@
       &.open {
         display: flex !important;
         transform: translateX(0) !important;
+      }
+
+      // Spacer so nav list clears the header bar height
+      &::before {
+        content: '';
+        display: block;
+        height: 64px;
+        flex-shrink: 0;
       }
 
       .nav-list {
@@ -373,8 +382,17 @@
   .site-footer {
     .footer-content {
       display: grid;
-      grid-template-columns: 2fr 1fr 1.5fr;
+      grid-template-columns: 2fr 2fr;
       gap: 3rem;
+      align-items: start;
+    }
+
+    // Quick Links + Connect side by side inside their grid cell
+    .footer-cols-row {
+      display: flex;
+      flex-direction: row;
+      gap: 3rem;
+      align-items: start;
     }
   }
 }
@@ -385,7 +403,7 @@
 .site-footer {
   background: var(--bg-dark);
   color: #a3a19b;
-  padding: 4rem 0 3rem;
+  padding: 4rem 0 0;
   font-family: var(--font-sans);
   position: relative;
   z-index: 10;
@@ -394,6 +412,14 @@
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+    padding-bottom: 3rem;
+  }
+
+  // Quick Links + Connect columns side by side (mobile: stacked)
+  .footer-cols-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .footer-logo {
@@ -417,11 +443,18 @@
     line-height: 1.6;
   }
 
-  .copyright {
-    margin-top: 1.25rem;
-    font-size: 0.8rem;
-    color: #5e5c56;
-    line-height: 1.5;
+  // Copyright bottom bar — very last thing on the page
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 1.1rem 0;
+    text-align: center;
+
+    .copyright {
+      font-size: 0.8rem;
+      color: #5e5c56;
+      line-height: 1.5;
+      margin: 0;
+    }
   }
 
   .footer-links,
@@ -456,12 +489,11 @@
     }
   }
 
-  // Row layout for social links
+  // Connect social links — column layout (one per row)
   .social-links--row {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.25rem;
+    flex-direction: column;
+    gap: 0.65rem;
 
     .social-link {
       display: inline-flex;
