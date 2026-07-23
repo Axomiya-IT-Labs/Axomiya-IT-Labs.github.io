@@ -3,15 +3,37 @@ description: "Equal Access for All — Making AI Easy for Everyone."
 url: "https://axomiya-it-labs.github.io"
 baseurl: ""
 
-author: Axomiya IT Labs
+author:
+  name: Axomiya IT Labs
+  twitter: AxomiyaITLabs
+
+twitter:
+  username: AxomiyaITLabs
+
+facebook:
+  publisher: AxomiyaITLabs
+
+logo: /assets/images/icons/icon.svg
 telegram: https://t.me/AxomiyaITLabs
 facebook_page: https://www.facebook.com/AxomiyaITLabs
 facebook_group: https://www.facebook.com/groups/1556385872564016/
 youtube: https://www.youtube.com/@AxomiyaITLabs
+instagram: https://www.instagram.com/axomiyaitlabs
+email: axomiyaitlabs@gmail.com
+
+image: /assets/images/og-image.webp
 
 markdown: kramdown
 sass:
   style: compressed
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:slug/
+  announcements:
+    output: true
+    permalink: /announcements/:slug/
 
 plugins:
   - jekyll-sass-converter
@@ -19,11 +41,15 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+include:
+  - _pages
+
 exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
   - PROJECT.md
+  - PROJECTS.md
   - node_modules
 
 # AI Chat Configuration

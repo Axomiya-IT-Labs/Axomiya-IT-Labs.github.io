@@ -41,6 +41,13 @@ Axomiya IT Labs is a free and open-source community. Please do not use this spac
 
 ---
 
+## 🛠️ Contributing to Projects
+
+Want to submit a new project, build an idea from the Ideas Bar, or scale our open-source tools?
+Read our dedicated [Projects & Contributor Guide (`PROJECTS.md`)](PROJECTS.md) and master system doc [`PROJECT.md`](PROJECT.md).
+
+---
+
 ## 🌐 Connect With Us
 
 - **Website**: [Axomiya IT Labs](https://axomiya-it-labs.github.io)

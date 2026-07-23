@@ -28,14 +28,11 @@ axomiyaitlabs/
 ├── .github/
 │   └── workflows/
 │       └── pages.yml              # 🚀 GitHub Actions deployment workflow
-├── _data/                         # 📊 Data files (Single source of content)
-│   ├── announcements.yml          # Product launches & updates
-│   ├── community.yml              # Member profiles & statistics
-│   ├── nav.yml                    # Main navigation bar links
-│   ├── projects.yml               # FOSS repositories & Ideas Bar ideas
-│   └── team.yml                   # Leadership, developers, & advisors
+├── _data/                         # 📊 Data files
+│   ├── navigation.yml             # Main navigation menu (dropdown-ready)
+│   └── team.yml                   # Team member profiles
 ├── _includes/                     # 🧩 Reusable HTML Components
-│   ├── header.html                # Responsive header & drawer menu
+│   ├── header.html                # Responsive header + CSS dropdown
 │   ├── footer.html                # Dark minimalist footer
 │   ├── components/
 │   │   ├── announcement-card.html # Announcement card
@@ -47,36 +44,51 @@ axomiyaitlabs/
 │       ├── community-stats.html   # Community stats grid
 │       └── team-grid.html         # Team grid layout
 ├── _layouts/                      # 📐 HTML Page Layout Templates
-│   ├── default.html               # Head, Google Fonts (Instrument Serif + Inter), SEO tags
+│   ├── default.html               # Head, SEO, OG, Twitter Cards, fonts
 │   ├── page.html                  # Standard page template
 │   ├── post.html                  # Blog post template
+│   ├── project.html               # Project detail template
 │   ├── announcements.html         # Announcements hub template
 │   ├── community.html             # Community landing template
 │   └── team.html                  # Team page template
 ├── _pages/                        # 📄 Main Pages
-│   ├── about.md                   # /about/
+│   ├── about/index.md             # /about/
+│   ├── contribute/index.md        # /contribute/
+│   ├── projects/index.md          # /projects/ (Active + Ideas Bar)
 │   ├── announcements/index.md     # /announcements/
+│   ├── research/index.md          # /research/
 │   ├── community/index.md         # /community/
-│   ├── projects/index.md          # /projects/ (FOSS & Ideas Bar)
 │   └── team/index.md              # /team/
-├── _posts/                        # ✍️ Blog Posts (YYYY-MM-DD-title.md)
-│   └── 2026-07-20-welcome-to-axomiya.md
+├── _posts/                        # ✍️ Research Posts (YYYY-MM-DD-title.md)
+│   └── 2026-07-23-ai-problem-breakdown.md
+├── _projects/                     # 🛠️ Project Collection (add .md files here)
+│   ├── 00-TEMPLATE.md             # Template for real projects
+│   └── 00-IDEA-TEMPLATE.md        # Template for open ideas
+├── _announcements/                # 📢 Announcement Collection (add .md files here)
+│   └── 00-TEMPLATE.md             # Template for announcements
 ├── _sass/                         # 🎨 SASS Stylesheets (Anthropic Design System)
 │   ├── base.scss                  # Fonts, typography, design tokens, buttons
-│   ├── layout.scss                # Header, mobile navigation drawer, dark footer
+│   ├── layout.scss                # Header, mobile nav, dropdown, dark footer
 │   ├── components/
 │   │   └── _ai-chat.scss          # AI assistant widget styles
 │   └── pages/
 │       ├── _announcements.scss    # Announcements grid
 │       ├── _community.scss       # Member cards & stats grid
-│       ├── _projects.scss         # FOSS project cards & Ideas Bar styles
-│       └── _team.scss             # Team member cards
+│       ├── _projects.scss         # Project cards & Ideas Bar styles
+│       ├── _team.scss             # Team member cards
+│       └── _listing.scss          # Shared listing card styles
 ├── assets/                        # 🖼️ Static Assets
 │   ├── css/
 │   │   └── main.scss              # Main stylesheet entrypoint
 │   ├── js/
-│   │   └── main.js                # Mobile drawer menu & smooth scroll JS
-│   └── images/                    # Image assets
+│   │   └── main.js                # Mobile drawer, dropdown toggle, smooth scroll
+│   └── images/
+│       ├── icons/icon.svg         # Favicon / browser tab icon
+│       ├── og-image.webp          # Social sharing preview image
+│       ├── projects/              # Project images
+│       ├── announcements/         # Announcement images
+│       ├── team/                  # Team member photos
+│       └── research/              # Research post images
 ├── _config.yml                    # ⚙️ Jekyll Configuration
 ├── Gemfile                        # 💎 Dependencies
 ├── index.md                       # 🏠 Home Page
@@ -114,32 +126,52 @@ The design system mimics Anthropic's warm, elegant editorial aesthetic (`anthrop
 
 ## 🛠️ 4. How to Update Anything on the Site
 
-### ✍️ A. Publishing Articles / Blog Posts
+### ✍️ A. Publishing Research Posts
 1. Create `_posts/YYYY-MM-DD-your-title.md`.
 2. Add Front Matter:
 ```markdown
 ---
 layout: post
-title: "Article Title"
+title: "Research Title"
+date: 2026-07-23
 author: "Author Name"
-categories: [AI, Learning]
-excerpt: "Article summary."
-image: "/assets/images/announcements/2026-07/welcome.jpg"
+permalink: /research/your-slug/
+excerpt: "Short summary."
+image: "/assets/images/research/your-image.jpg"
+tags:
+  - AI-In-Assam
+  - Automation
 ---
 
-Write article content in Markdown...
+Write research content in Markdown...
 ```
+The Research page (`/research/`) automatically lists all posts.
 
-### 👨‍💻 B. Adding Team Members
-Edit `_data/team.yml` under `leadership`, `developers`, `designers`, or `advisors`.
+### 🛠️ B. Adding Projects & Ideas
+1. Copy `_projects/00-TEMPLATE.md` for real projects or `_projects/00-IDEA-TEMPLATE.md` for ideas.
+2. Rename and fill front matter + body content.
+3. Drop the file into `_projects/`.
+4. The Projects page (`/projects/`) automatically lists them.
+
+**Status values:** `Live`, `Beta`, `In Progress`, `Idea`
 
 ### 📢 C. Adding Announcements
-Edit `_data/announcements.yml`.
+1. Copy `_announcements/00-TEMPLATE.md`.
+2. Rename and fill front matter + body content.
+3. Drop the file into `_announcements/`.
+4. The Announcements page (`/announcements/`) automatically lists them.
 
-### 💡 D. Adding FOSS Software Repositories & Ideas to the Ideas Bar
-Edit `_data/projects.yml`:
-- Add to `projects` for completed open-source software.
-- Add to `ideas_bar` for project ideas that developers/nerds can pick up and build.
+### 👨‍💻 D. Adding Team Members
+Edit `_data/team.yml` under `leadership`, `developers`, `designers`, or `advisors`.
+
+### 📝 E. Updating Navigation
+Edit `_data/navigation.yml`. Add `dropdown:` under any item to create a dropdown menu.
+
+### 🖼️ F. Images & Media
+- Supported formats: `.JPG`, `.JPEG`, `.PNG`, `.WEBP`, `.SVG`
+- **`.webp` is highly preferred** for all raster images.
+- Place images in `assets/images/{projects,announcements,team,research}/`.
+- Set `image:` in front matter to the relative path (e.g., `/assets/images/projects/my-project.jpg`).
 
 ---
 

@@ -10,6 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Mobile Dropdown Toggle
+  const dropdownParents = document.querySelectorAll('.nav-item.has-dropdown > .nav-link');
+  dropdownParents.forEach(link => {
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 767) {
+        e.preventDefault();
+        const parent = link.parentElement;
+        parent.classList.toggle('open');
+      }
+    });
+  });
+
   // Smooth scroll for internal links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

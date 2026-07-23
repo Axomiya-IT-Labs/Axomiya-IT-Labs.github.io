@@ -1,4 +1,23 @@
 // Projects & Ideas Bar SASS Styles (Anthropic Minimal)
+.project-detail-page {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.project-hero-image {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--border-light);
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+}
+
 .projects-hero {
   margin-bottom: 2.5rem;
 }

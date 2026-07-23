@@ -1,47 +1,83 @@
 ---
-layout: community
-title: Axomiya Community
+layout: default
+title: Community
 permalink: /community/
 ---
 
-<div class="community-hero text-center">
-  <h2>🌍 Axomiya IT Labs Community</h2>
-  <p class="lead">Welcome to our community! We are building an open-source, AI-powered future together.</p>
+<div class="hero-section">
+  <span class="hero-badge">Join Assam's First AI & Open Source Space</span>
+  <h1 class="hero-title">Join the Community</h1>
+  <p class="hero-subtitle">Connect with builders, learners, and researchers across Assam and the world.</p>
 </div>
 
-<section class="community-stats-section">
-  <h3>Community Overview</h3>
-  {% include sections/community-stats.html %}
-</section>
-
-<section class="featured-members-section">
-  <h3>Featured Community Members</h3>
-  <p>Meet some of our active members driving open-source contributions and collaboration.</p>
+<section class="container">
+  <div class="text-center">
+    <h2 class="section-title">Official Channels</h2>
+    <p class="section-subtitle">Pick a platform and say hello.</p>
+  </div>
 
   <div class="community-grid">
-    {% for member in site.data.community.featured_members %}
-      {% include components/member-card.html member=member %}
-    {% endfor %}
+    <div class="card-item">
+      <div class="card-icon">✈️</div>
+      <h3>Telegram Group</h3>
+      <p>Main discussion hub for questions, ideas, and daily collaboration.</p>
+      <a href="https://t.me/AxomiyaITLabs" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join Telegram</a>
+    </div>
+
+    <div class="card-item">
+      <div class="card-icon">🐙</div>
+      <h3>GitHub Organization</h3>
+      <p>Code, research repositories, and open-source project contributions.</p>
+      <a href="https://github.com/Axomiya-IT-Labs" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View GitHub Org</a>
+    </div>
+
+    <div class="card-item">
+      <div class="card-icon">👥</div>
+      <h3>Facebook Group</h3>
+      <p>Community discussions, events, and resource sharing.</p>
+      <a href="https://www.facebook.com/groups/1556385872564016/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join Facebook Group</a>
+    </div>
+
+    <div class="card-item">
+      <div class="card-icon">📘</div>
+      <h3>Facebook Page</h3>
+      <p>Official announcements, updates, and event highlights.</p>
+      <a href="https://facebook.com/AxomiyaITLabs" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Follow Page</a>
+    </div>
+
+    <div class="card-item">
+      <div class="card-icon">▶️</div>
+      <h3>YouTube Channel</h3>
+      <p>Tutorials, talks, demos, and community meetup recordings.</p>
+      <a href="https://www.youtube.com/@AxomiyaITLabs" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Watch on YouTube</a>
+    </div>
+
+    <div class="card-item">
+      <div class="card-icon">📸</div>
+      <h3>Instagram</h3>
+      <p>Behind-the-scenes, event photos, and short updates.</p>
+      <a href="https://www.instagram.com/axomiyaitlabs" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Follow on Instagram</a>
+    </div>
+
+    <div class="card-item">
+      <div class="card-icon">🐦</div>
+      <h3>X (Twitter)</h3>
+      <p>Quick updates, thread breakdowns, and community threads.</p>
+      <a href="https://x.com/AxomiyaITLabs" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Follow on X</a>
+    </div>
+
+    <div class="card-item">
+      <div class="card-icon">✉️</div>
+      <h3>Email</h3>
+      <p>Reach out directly for collaborations, sponsorships, or press.</p>
+      <a href="mailto:axomiyaitlabs@gmail.com" class="btn btn-primary">Email Us</a>
+    </div>
   </div>
 </section>
 
-<section class="community-mission-section">
-  <h3>🎯 Our Mission & Goals</h3>
-  <ul class="mission-list">
-    <li><strong>Democratize AI Education</strong>: Provide accessible learning materials and tools for developers and students.</li>
-    <li><strong>Build Open Source Solutions</strong>: Develop open-source software libraries for community projects.</li>
-    <li><strong>Foster Global Collaboration</strong>: Connect developers, creators, and researchers around the world.</li>
-    <li><strong>Empower Digital Opportunity</strong>: Provide skill development and mentoring opportunities.</li>
-  </ul>
-</section>
-
-<section class="get-involved-section text-center">
-  <h3>Get Involved Today</h3>
-  <p>Whether you write code, create tutorials, or design user experiences, you are welcome here!</p>
-  <div class="action-buttons">
-    <a href="https://t.me/AxomiyaITLabs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Join Telegram</a>
-    <a href="https://github.com/axomiyaitlabs" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Contribute on GitHub</a>
+<section class="container">
+  <div class="guidelines-box text-center">
+    <h3>Rules & Non-Commercial Notice</h3>
+    <p>Axomiya IT Labs is strictly non-commercial and free from sales spam. This community does not allow paid promotions, business advertising, or commercial solicitations. If you are here to learn, build, or share — you are welcome. If you are here to sell, this is not the place.</p>
   </div>
 </section>
-
-{% include partials/newsletter-signup.html %}

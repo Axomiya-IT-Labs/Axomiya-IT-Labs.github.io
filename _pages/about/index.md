@@ -1,16 +1,13 @@
 ---
 layout: default
-title: Home
+title: About Us
+permalink: /about/
 ---
 
 <div class="hero-section">
-  <span class="hero-badge">Rooted in Assam</span>
-  <h1 class="hero-title">Assam's first AI & open-source community.</h1>
-  <p class="hero-subtitle">Everyone is welcome — no matter your age, background, or technical skill. If you are curious and want to learn, build, or share, you belong here.</p>
-  <div class="hero-buttons">
-    <a href="{{ '/projects/' | relative_url }}" class="btn btn-primary">Explore FOSS Projects</a>
-    <a href="{{ '/community/' | relative_url }}" class="btn btn-secondary">Join Community</a>
-  </div>
+  <span class="hero-badge">Assam's First AI & Open-Source Community</span>
+  <h1 class="hero-title">About Axomiya IT Labs</h1>
+  <p class="hero-subtitle">Equal Access for All — Making AI Easy for Everyone.</p>
 </div>
 
 <section class="mission-block text-center container">
@@ -55,7 +52,7 @@ title: Home
 
 <section class="principles-section container">
   <div class="text-center">
-    <h2 class="section-title">What We Believe</h2>
+    <h2 class="section-title">Core Principles</h2>
     <p class="section-subtitle">Three principles that guide everything we build.</p>
   </div>
 
@@ -76,53 +73,62 @@ title: Home
 
     <div class="principle-card">
       <div class="principle-num">03</div>
-      <h3>Accessible Tech & Learning</h3>
-      <p>Language does not decide who gets to learn. We build clear, accessible resources so every learner starts with confidence. Understanding comes first. Speed comes after.</p>
+      <h3>Assamese First</h3>
+      <p>Language does not decide who gets to learn. We build clear, accessible resources in Assamese and English so every learner starts with confidence. Understanding comes first. Speed comes after.</p>
       <div class="principle-takeaway">Understanding comes first. Speed comes after.</div>
     </div>
   </div>
 </section>
 
-<section class="who-this-is-for container text-center">
-  <h2 class="section-title">Who This Is For</h2>
-  <p class="lead">Built for every person in Assam — and beyond.</p>
-  <p>You do not need to be a developer. You do not need to be an expert. If you are curious, you belong here. AI removes the barriers — we just need your willingness to explore and learn.</p>
+<section class="container">
+  <div class="text-center">
+    <h2 class="section-title">Quick Actions</h2>
+    <p class="section-subtitle">Get involved in the way that fits you best.</p>
+  </div>
 
-  <div class="pill-cloud" style="margin-top: 1.5rem;">
-    <span class="pill-badge">Kids</span>
-    <span class="pill-badge">Students</span>
-    <span class="pill-badge">Teachers</span>
-    <span class="pill-badge">Parents</span>
-    <span class="pill-badge">Developers</span>
-    <span class="pill-badge">Entrepreneurs</span>
-    <span class="pill-badge">Freelancers</span>
-    <span class="pill-badge">Job Seekers</span>
-    <span class="pill-badge">Govt. Employees</span>
-    <span class="pill-badge">Small Businesses</span>
-    <span class="pill-badge">Creators</span>
-    <span class="pill-badge">Lifelong Learners</span>
+  <div class="three-column-grid">
+    <div class="card-item text-center">
+      <div class="card-icon">💻</div>
+      <h3>Contribute or Submit Research</h3>
+      <p>Open a PR, report an issue, or share a research breakdown on GitHub.</p>
+      <a href="https://github.com/Axomiya-IT-Labs" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit GitHub Org</a>
+    </div>
+
+    <div class="card-item text-center">
+      <div class="card-icon">🤝</div>
+      <h3>Contribute Code or Docs</h3>
+      <p>Report bugs, improve documentation, or submit pull requests to any open-source repo.</p>
+      <a href="{{ '/contribute/' | relative_url }}" class="btn btn-secondary">How to Contribute</a>
+    </div>
+
+    <div class="card-item text-center">
+      <div class="card-icon">💬</div>
+      <h3>Discuss Something</h3>
+      <p>Ask questions, share ideas, and meet other builders in our community.</p>
+      <a href="{{ '/community/' | relative_url }}" class="btn btn-secondary">Join Community</a>
+    </div>
+
+    <div class="card-item text-center">
+      <div class="card-icon">🚀</div>
+      <h3>See What We're Building</h3>
+      <p>Explore active FOSS projects, tools, and experiments.</p>
+      <a href="{{ '/projects/' | relative_url }}" class="btn btn-secondary">View Projects</a>
+    </div>
+  </div>
+
+  <div class="text-center" style="margin-top: 1.5rem;">
+    <div class="card-item text-center" style="display: inline-block; min-width: 280px;">
+      <div class="card-icon">👥</div>
+      <h3>Meet the Team</h3>
+      <p>Learn about the builders, researchers, and organizers behind Axomiya IT Labs.</p>
+      <a href="{{ '/team/' | relative_url }}" class="btn btn-secondary">View Team</a>
+    </div>
   </div>
 </section>
 
 <section class="container">
   <div class="guidelines-box text-center">
-    <h3>Open Source — Not Open for Business Promotions</h3>
-    <p>Axomiya IT Labs is a free and open-source community. Please do not use this space for business promotions, paid services, or commercial advertisements. All contributions must genuinely benefit the community. For business collaborations, sponsorships, or paid opportunities, please join our Telegram community and speak directly with the admins.</p>
-  </div>
-</section>
-
-<section class="latest-announcements-section container">
-  <div class="text-center">
-    <h2 class="section-title">Latest Announcements</h2>
-    <p class="section-subtitle">Discover product launches, events, and open-source milestones.</p>
-  </div>
-  {% assign latest_announcements = site.announcements | where_exp: "item", "item.published != false" | sort: "date" | reverse | limit: 3 %}
-  <div class="announcements-grid">
-    {% for announcement in latest_announcements %}
-      {% include components/announcement-card.html announcement=announcement %}
-    {% endfor %}
-  </div>
-  <div class="text-center" style="margin-top: 1.5rem;">
-    <a href="{{ '/announcements/' | relative_url }}" class="btn btn-secondary">View All Announcements →</a>
+    <h3>Community Disclosure</h3>
+    <p>Axomiya IT Labs is a strictly non-commercial, open-source community. This space is free from sales spam, paid promotions, and commercial advertisements. All contributions must genuinely benefit the community.</p>
   </div>
 </section>

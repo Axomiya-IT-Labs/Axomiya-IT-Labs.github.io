@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<div class="project-detail-page container" style="max-width: 800px; margin: 0 auto; padding: 2rem 1rem;">
+  <header class="page-header text-center" style="margin-bottom: 2rem;">
+    <div class="project-tags" style="justify-content: center; margin-bottom: 1rem;">
+      {% if page.status %}<span class="tag">{{ page.status }}</span>{% endif %}
+      {% if page.category %}<span class="tag">{{ page.category }}</span>{% endif %}
+    </div>
+    <h1 class="page-title" style="font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 0.5rem;">{{ page.title }}</h1>
+    {% if page.excerpt %}<p class="page-subtitle" style="color: var(--text-muted); font-size: 1.1rem;">{{ page.excerpt }}</p>{% endif %}
+  </header>
+
+  <article class="post-container">
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    <footer class="post-footer" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light);">
+      <div class="project-tags" style="margin-bottom: 1.5rem;">
+        {% if page.tags %}
+          {% for tag in page.tags %}
+          <span class="tag">#{{ tag }}</span>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="project-actions">
+        {% if page.repo %}
+        <a href="{{ page.repo }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">💻 GitHub Repo</a>
+        {% endif %}
+        {% if page.demo %}
+        <a href="{{ page.demo }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">🌐 Live Website</a>
+        {% endif %}
+      </div>
+    </footer>
+  </article>
+
+  <div class="text-center" style="margin-top: 2.5rem;">
+    <a href="{{ '/projects/' | relative_url }}" class="btn btn-secondary">← Back to Projects</a>
+  </div>
+</div>

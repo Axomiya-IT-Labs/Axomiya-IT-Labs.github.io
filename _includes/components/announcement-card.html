@@ -6,7 +6,7 @@
     </div>
     {% endif %}
     <div class="announcement-content">
-        <h2><a href="{{ announcement.link | relative_url }}">{{ announcement.title }}</a></h2>
+        <h2><a href="{{ announcement.url | relative_url }}">{{ announcement.title }}</a></h2>
         <p class="meta">
             <span class="date">📅 {{ announcement.date | date: "%B %d, %Y" }}</span>
             {% if announcement.author %}<span class="author">✍️ {{ announcement.author }}</span>{% endif %}
@@ -19,6 +19,6 @@
             {% endfor %}
         </div>
         {% endif %}
-        <a href="{{ announcement.link | relative_url }}" class="read-more">Read More →</a>
+        <a href="{{ announcement.url | relative_url }}" class="read-more">Read More →</a>
     </div>
 </div>

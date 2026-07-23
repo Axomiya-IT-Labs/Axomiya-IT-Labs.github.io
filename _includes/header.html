@@ -1,20 +1,35 @@
 <header class="site-header">
-  <div class="container header-content">
-    <a class="site-logo" href="{{ '/' | relative_url }}">
+  <div class="header-container">
+    <!-- Brand Logo acts as Home link -->
+    <a href="{{ '/' | relative_url }}" class="site-logo">
       <span class="logo-icon">⚡</span>
-      <span class="logo-text">Axomiya IT Labs</span>
+      <span class="logo-text">{{ site.title | default: "Axomiya IT Labs" }}</span>
     </a>
-    
-    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" id="mobileMenuBtn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
 
-    <nav class="site-nav" id="siteNav">
-      {% for item in site.data.nav %}
-        <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">{{ item.title }}</a>
-      {% endfor %}
+    <!-- Main Navigation Loop -->
+    <nav class="site-nav">
+      <ul class="nav-list">
+        {% for item in site.data.navigation %}
+          <li class="nav-item{% if item.dropdown %} has-dropdown{% endif %}">
+            <a href="{{ item.link | relative_url }}" class="nav-link {% if page.url == item.link %}active{% endif %}">
+              {{ item.name }}
+              {% if item.dropdown %}<span class="dropdown-arrow">▾</span>{% endif %}
+            </a>
+
+            {% if item.dropdown %}
+              <ul class="dropdown-menu">
+                {% for subitem in item.dropdown %}
+                  <li>
+                    <a href="{{ subitem.link | relative_url }}" class="dropdown-item {% if page.url == subitem.link %}active{% endif %}">
+                      {{ subitem.name }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
     </nav>
   </div>
 </header>
