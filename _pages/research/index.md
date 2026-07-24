@@ -5,7 +5,7 @@ permalink: /research/
 ---
 
 <div class="announcements-header-block text-center">
-    <h2>📚 Research & Guides</h2>
+    <h2>Research & Guides</h2>
     <p>Tutorials, case studies, AI breakdowns, and technical deep-dives.</p>
 </div>
 
@@ -17,8 +17,8 @@ permalink: /research/
         <div class="listing-content">
             <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
             <p class="listing-meta">
-                {% if post.date %}<span>📅 {{ post.date | date: "%B %d, %Y" }}</span>{% endif %}
-                {% if post.author %}<span>✍️ {{ post.author }}</span>{% endif %}
+                {% if post.date %}<span>{{ post.date | date: "%B %d, %Y" }}</span>{% endif %}
+                {% if post.author %}<span>{{ post.author }}</span>{% endif %}
             </p>
             <p class="listing-excerpt">{{ post.excerpt }}</p>
             {% if post.tags %}
