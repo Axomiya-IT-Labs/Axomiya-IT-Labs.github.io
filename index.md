@@ -89,8 +89,8 @@ title: Home
         <span class="fp-status fp-status--live">Live</span>
         <span class="fp-category">AI &amp; Education</span>
       </div>
-      <h3 class="fp-title">What After 12th</h3>
-      <p class="fp-desc">An AI-guided assistant that breaks down college streams, scholarships, and job pathways in plain Assamese — for Class 10 &amp; 12 students who lack access to structured career counseling.</p>
+      <h3 class="fp-title">WhatAfter12 - Career Clarity Guidance</h3>
+      <p class="fp-desc">Know all higher education path, jobs & earning opportunities available after 12 in the age of AI.</p>
       <div class="fp-links">
         <a href="https://whatafter12.vercel.app/en" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open App</a>
         <a href="https://github.com/axomiyaindie/wa12" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">

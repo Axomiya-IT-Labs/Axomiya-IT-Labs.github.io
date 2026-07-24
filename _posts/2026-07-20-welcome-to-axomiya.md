@@ -5,7 +5,6 @@ lang: en
 author: "Rakibul Islam"
 categories: [Community, Welcome]
 excerpt: "Welcome to our community blog where we share updates, insights, and open-source project developments."
-image: "/assets/images/announcements/2026-07/welcome.jpg"
 ---
 
 ## Welcome to Axomiya IT Labs!

@@ -1,11 +1,11 @@
 ---
 layout: project
-title: "What After 12th — Assamese AI Career Guidance"
+title: "WhatAfter12 - Career Clarity Guidance"
 permalink: /projects/what-after-12/
 date: 2026-07-23
 status: Beta
 category: AI & Education
-excerpt: "An AI-guided assistant that breaks down college streams, scholarships, and job pathways in plain Assamese for Class 10 & 12 students."
+excerpt: "Know all higher education path, jobs & earning opportunities available after 12 in the age of AI."
 tags:
   - Assamese-AI
   - Career-Guidance

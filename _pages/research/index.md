@@ -9,7 +9,7 @@ permalink: /research/
     <p>Tutorials, case studies, AI breakdowns, and technical deep-dives.</p>
 </div>
 
-{% assign research_posts = site.posts | where_exp: "item", "item.published != false" | sort: "date" | reverse %}
+{% assign research_posts = site.posts | where_exp: "item", "item.published != false" | sort: "date" | reverse | where_exp: "item", "item.title != 'Welcome to Axomiya IT Labs! 🚀'" %}
 {% if research_posts.size > 0 %}
 <div class="listings-grid">
     {% for post in research_posts %}

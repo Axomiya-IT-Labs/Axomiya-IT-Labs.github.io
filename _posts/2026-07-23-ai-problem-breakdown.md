@@ -9,7 +9,7 @@ permalink: /research/ai-problem-breakdown/
 <div class="hero-section">
   <span class="hero-badge">Research Breakdown</span>
   <h1 class="hero-title">Why Assamese Students Struggle with Career Guidance After Class 12</h1>
-  <p class="hero-subtitle">Problem ➔ Friction ➔ AI Solution</p>
+  <p class="hero-subtitle">Problem - Friction - AI Solution</p>
 </div>
 
 <section class="container">
@@ -52,8 +52,8 @@ permalink: /research/ai-problem-breakdown/
       <p>The prototype is under active development. The front-end uses Next.js, data is stored in open Markdown/JSON, and the AI layer uses open-source NLP tooling optimized for low-resource Assamese text.</p>
 
       <div class="project-actions" style="margin-top: 1.5rem;">
-        <a href="https://github.com/Axomiya-IT-Labs/what-after-12" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">💻 View Repo on GitHub</a>
-        <a href="https://what-after-12.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">🌐 Live Prototype</a>
+        <a href="https://github.com/axomiyaindie/wa12" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">View Repo on GitHub</a>
+        <a href="https://whatafter12.vercel.app/en" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">Live Prototype</a>
       </div>
     </div>
   </article>

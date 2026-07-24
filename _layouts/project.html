@@ -26,7 +26,7 @@ layout: default
     <footer class="post-footer" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light);">
       {% if page.status != 'Live' %}
       <div class="coming-soon-notice" style="background: var(--bg-subtle); border: 1px solid var(--border-light); padding: 1.25rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem; text-align: center;">
-        <span style="font-size: 1.25rem;">🚀</span>
+        <span style="font-size: 1.25rem;">Coming Soon</span>
         <strong style="color: var(--text-main);">Coming Soon!</strong>
         <p style="margin: 0.35rem 0 0; font-size: 0.95rem; color: var(--text-muted);">This project is currently in concept/development phase. Live links and repositories will be available upon launch.</p>
       </div>
@@ -43,7 +43,7 @@ layout: default
       {% if page.repo or page.demo %}
       <div class="project-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
         {% if page.demo %}
-        <a href="{{ page.demo }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Open Live Website</a>
+        <a href="{{ page.demo }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open Live Website</a>
         {% endif %}
         {% if page.repo %}
         <a href="{{ page.repo }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">

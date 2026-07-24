@@ -34,8 +34,8 @@ Describe the target users.
 ---
 
 <div class="project-actions" style="margin-top: 1.5rem;">
-  <a href="https://github.com/Axomiya-IT-Labs/your-repo" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">💻 View on GitHub</a>
+  <a href="https://github.com/Axomiya-IT-Labs/your-repo" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">View on GitHub</a>
   {% if page.demo %}
-  <a href="{{ page.demo }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">🌐 Live Demo</a>
+  <a href="{{ page.demo }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">Live Demo</a>
   {% endif %}
 </div>
