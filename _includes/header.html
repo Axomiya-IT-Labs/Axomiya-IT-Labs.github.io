@@ -1,16 +1,16 @@
-<header class="site-header">
+<header class="site-header" id="site-header">
   <div class="header-container">
 
     <!-- Brand Logo — fixed left -->
     <a href="{{ '/' | relative_url }}" class="site-logo" aria-label="Axomiya IT Labs — Home">
-      <img src="{{ '/assets/images/icons/icon.svg' | relative_url }}" alt="Axomiya IT Labs" class="logo-svg" width="34" height="34">
+      <img src="{{ '/assets/images/icons/icon.svg' | relative_url }}" alt="Axomiya IT Labs" class="logo-svg" width="32" height="32">
       <span class="logo-text">Axomiya IT Labs</span>
     </a>
 
-    <!-- OpenAI Style Search Trigger Box — right after brand logo -->
+    <!-- Search Trigger Box -->
     <div class="header-search-box">
       <button class="site-search-btn" id="site-search-btn" aria-label="Search website">
-        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
@@ -19,11 +19,19 @@
       </button>
     </div>
 
-    <!-- Spacer — pushes nav to start from visual centre on desktop -->
-    <div class="header-spacer" aria-hidden="true"></div>
-
-    <!-- Desktop & Mobile Navigation -->
+    <!-- Desktop & Mobile Navigation Drawer -->
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <!-- Search Trigger inside Mobile Drawer -->
+      <div class="mobile-nav-header">
+        <button class="mobile-search-trigger" id="mobile-search-trigger" aria-label="Search site from menu">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Search Axomiya IT Labs...</span>
+        </button>
+      </div>
+
       <ul class="nav-list">
         {% for item in site.data.navigation %}
           <li class="nav-item{% if item.dropdown %} has-dropdown{% endif %}" id="nav-item-{{ forloop.index }}">
@@ -34,7 +42,7 @@
                 aria-expanded="false"
                 data-dropdown="dropdown-{{ forloop.index }}"
               >
-                {{ item.name }}
+                <span class="nav-link-text">{{ item.name }}</span>
                 <span class="dropdown-arrow" aria-hidden="true">
                   <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </span>
@@ -50,15 +58,21 @@
               </ul>
             {% else %}
               <a href="{{ item.link | relative_url }}" class="nav-link {% if page.url == item.link %}active{% endif %}">
-                {{ item.name }}
+                <span class="nav-link-text">{{ item.name }}</span>
               </a>
             {% endif %}
           </li>
         {% endfor %}
       </ul>
+
+      <!-- Quick CTAs inside Mobile Drawer -->
+      <div class="mobile-nav-footer">
+        <a href="{{ '/projects/' | relative_url }}" class="btn btn-primary btn-mobile-cta">Explore Projects</a>
+        <a href="{{ '/community/' | relative_url }}" class="btn btn-secondary btn-mobile-cta">Join Community</a>
+      </div>
     </nav>
 
-    <!-- Mobile hamburger — always visible on mobile -->
+    <!-- Mobile Hamburger Button — always visible top-right on mobile -->
     <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
@@ -67,6 +81,9 @@
 
   </div>
 </header>
+
+<!-- Mobile Navigation Drawer Backdrop -->
+<div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
 
 <!-- Search Modal Overlay (OpenAI Style) -->
 <div class="search-modal-backdrop" id="search-modal" aria-hidden="true">
@@ -88,23 +105,30 @@
 <script>
 (function () {
   // ── Hamburger / mobile drawer ──────────────────────────────
-  var toggle = document.getElementById('mobile-menu-toggle');
-  var nav    = document.getElementById('site-nav');
+  var toggle   = document.getElementById('mobile-menu-toggle');
+  var nav      = document.getElementById('site-nav');
+  var backdrop = document.getElementById('mobile-nav-backdrop');
 
   function openMobileNav() {
+    if (!nav || !toggle) return;
     nav.classList.add('open');
     toggle.classList.add('is-open');
+    if (backdrop) backdrop.classList.add('active');
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Close navigation menu');
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
   }
 
   function closeMobileNav() {
+    if (!nav || !toggle) return;
     nav.classList.remove('open');
     toggle.classList.remove('is-open');
+    if (backdrop) backdrop.classList.remove('active');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open navigation menu');
     document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
   }
 
   if (toggle && nav) {
@@ -113,16 +137,36 @@
       if (nav.classList.contains('open')) { closeMobileNav(); } else { openMobileNav(); }
     });
 
-    // Escape key closes mobile nav
+    if (backdrop) {
+      backdrop.addEventListener('click', function () {
+        closeMobileNav();
+      });
+    }
+
+    // Auto-close mobile drawer when any link inside is clicked
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) {
+        closeMobileNav();
+      }
+    });
+
+    // Close on Escape key
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
         closeMobileNav();
         closeAllDropdowns();
       }
     });
+
+    // Close mobile nav on resize to desktop
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 768 && nav.classList.contains('open')) {
+        closeMobileNav();
+      }
+    });
   }
 
-  // ── Click-only dropdowns (desktop + mobile) ────────────────
+  // ── Click-only dropdowns (desktop + mobile accordions) ──────
   var dropdownBtns = document.querySelectorAll('[data-dropdown]');
 
   function closeAllDropdowns(except) {
@@ -168,19 +212,14 @@
     closeAllDropdowns();
   });
 
-  if (nav) {
-    nav.addEventListener('click', function (e) {
-      if (!e.target.closest('a')) e.stopPropagation();
-    });
-  }
-
   // ── Live Search Engine (OpenAI Style) ────────────────────────
-  var searchBtn = document.getElementById('site-search-btn');
-  var searchModal = document.getElementById('search-modal');
-  var searchCloseBtn = document.getElementById('search-close-btn');
-  var searchInput = document.getElementById('search-input');
-  var searchResults = document.getElementById('search-results-wrapper');
-  var searchIndex = null;
+  var searchBtn          = document.getElementById('site-search-btn');
+  var mobileSearchBtn    = document.getElementById('mobile-search-trigger');
+  var searchModal        = document.getElementById('search-modal');
+  var searchCloseBtn     = document.getElementById('search-close-btn');
+  var searchInput        = document.getElementById('search-input');
+  var searchResults      = document.getElementById('search-results-wrapper');
+  var searchIndex        = null;
 
   function fetchSearchIndex() {
     if (searchIndex) return Promise.resolve(searchIndex);
@@ -196,6 +235,7 @@
   }
 
   function openSearch() {
+    closeMobileNav();
     if (!searchModal) return;
     searchModal.classList.add('active');
     searchModal.setAttribute('aria-hidden', 'false');
@@ -212,6 +252,7 @@
     searchModal.setAttribute('aria-hidden', 'true');
     if (!nav || !nav.classList.contains('open')) {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
     if (searchInput) searchInput.value = '';
     if (searchResults) searchResults.innerHTML = '<div class="search-hint">Type to search projects, research, guides, and pages...</div>';
@@ -219,6 +260,9 @@
 
   if (searchBtn) {
     searchBtn.addEventListener('click', openSearch);
+  }
+  if (mobileSearchBtn) {
+    mobileSearchBtn.addEventListener('click', openSearch);
   }
   if (searchCloseBtn) {
     searchCloseBtn.addEventListener('click', closeSearch);
@@ -233,7 +277,7 @@
   document.addEventListener('keydown', function(e) {
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
       e.preventDefault();
-      if (searchModal.classList.contains('active')) {
+      if (searchModal && searchModal.classList.contains('active')) {
         closeSearch();
       } else {
         openSearch();
